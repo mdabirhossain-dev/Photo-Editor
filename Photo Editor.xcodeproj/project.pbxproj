@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1014D3702BFA0791001E670E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1014D36F2BFA0791001E670E /* HomeView.swift */; };
+		1014D3722BFA07D0001E670E /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1014D3712BFA07D0001E670E /* FilterViewModel.swift */; };
+		1014D3742BFA0864001E670E /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1014D3732BFA0864001E670E /* ImagePicker.swift */; };
+		1014D3762BFA1E9E001E670E /* FilteredImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1014D3752BFA1E9E001E670E /* FilteredImageModel.swift */; };
 		10D042D82BFA0519004C3772 /* Photo_EditorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D042D72BFA0519004C3772 /* Photo_EditorApp.swift */; };
 		10D042DA2BFA0519004C3772 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D042D92BFA0519004C3772 /* ContentView.swift */; };
 		10D042DC2BFA051C004C3772 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10D042DB2BFA051C004C3772 /* Assets.xcassets */; };
@@ -14,6 +18,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1014D36F2BFA0791001E670E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		1014D3712BFA07D0001E670E /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
+		1014D3732BFA0864001E670E /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		1014D3752BFA1E9E001E670E /* FilteredImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredImageModel.swift; sourceTree = "<group>"; };
 		10D042D42BFA0519004C3772 /* Photo Editor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Photo Editor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		10D042D72BFA0519004C3772 /* Photo_EditorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo_EditorApp.swift; sourceTree = "<group>"; };
 		10D042D92BFA0519004C3772 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +40,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1014D36C2BFA0761001E670E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1014D36F2BFA0791001E670E /* HomeView.swift */,
+				1014D3732BFA0864001E670E /* ImagePicker.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1014D36D2BFA076A001E670E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1014D3752BFA1E9E001E670E /* FilteredImageModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1014D36E2BFA0775001E670E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1014D3712BFA07D0001E670E /* FilterViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		10D042CB2BFA0519004C3772 = {
 			isa = PBXGroup;
 			children = (
@@ -51,6 +84,9 @@
 		10D042D62BFA0519004C3772 /* Photo Editor */ = {
 			isa = PBXGroup;
 			children = (
+				1014D36E2BFA0775001E670E /* ViewModel */,
+				1014D36D2BFA076A001E670E /* Model */,
+				1014D36C2BFA0761001E670E /* View */,
 				10D042D72BFA0519004C3772 /* Photo_EditorApp.swift */,
 				10D042D92BFA0519004C3772 /* ContentView.swift */,
 				10D042DB2BFA051C004C3772 /* Assets.xcassets */,
@@ -137,8 +173,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1014D3702BFA0791001E670E /* HomeView.swift in Sources */,
 				10D042DA2BFA0519004C3772 /* ContentView.swift in Sources */,
+				1014D3742BFA0864001E670E /* ImagePicker.swift in Sources */,
 				10D042D82BFA0519004C3772 /* Photo_EditorApp.swift in Sources */,
+				1014D3722BFA07D0001E670E /* FilterViewModel.swift in Sources */,
+				1014D3762BFA1E9E001E670E /* FilteredImageModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

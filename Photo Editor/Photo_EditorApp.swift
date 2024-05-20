@@ -11,7 +11,10 @@ import SwiftUI
 struct Photo_EditorApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                HomeView()
+            }
         }
     }
 }
+

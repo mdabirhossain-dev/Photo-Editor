@@ -84,9 +84,9 @@
 		10D042D62BFA0519004C3772 /* Photo Editor */ = {
 			isa = PBXGroup;
 			children = (
-				1014D36E2BFA0775001E670E /* ViewModel */,
 				1014D36D2BFA076A001E670E /* Model */,
 				1014D36C2BFA0761001E670E /* View */,
+				1014D36E2BFA0775001E670E /* ViewModel */,
 				10D042D72BFA0519004C3772 /* Photo_EditorApp.swift */,
 				10D042D92BFA0519004C3772 /* ContentView.swift */,
 				10D042DB2BFA051C004C3772 /* Assets.xcassets */,

@@ -18,6 +18,9 @@ class FilterViewModel: ObservableObject {
     // Main Editing image
     @Published var mainView: FilteredImageModel!
     
+    // Slider for intensity and radious (initial value is full)
+    @Published var value: CGFloat = 1.0
+    
     // Loading filtered image when image is selected
     let filters: [CIFilter] = [
         CIFilter.gaussianBlur(), CIFilter.sepiaTone(), CIFilter.comicEffect(), CIFilter.bloom(), CIFilter.photoEffectChrome(), CIFilter.photoEffectFade(), CIFilter.colorInvert(), CIFilter.colorMonochrome(), CIFilter.bumpDistortion(), CIFilter.boxBlur(), CIFilter.circularScreen()
@@ -40,7 +43,9 @@ class FilterViewModel: ObservableObject {
                 
                 // Creating UIImage...
                 let cgImage = context.createCGImage(newImage, from: newImage.extent)
-                let filteredData = FilteredImageModel(image: UIImage(cgImage: cgImage!), filter: filter)
+                let isEditable = filter.inputKeys.count > 1
+                
+                let filteredData = FilteredImageModel(image: UIImage(cgImage: cgImage!), filter: filter, isEditable: isEditable)
                 
                 DispatchQueue.main.async {
                     self.allImages.append(filteredData)
@@ -50,6 +55,43 @@ class FilterViewModel: ObservableObject {
                         self.mainView = self.allImages.first
                     }
                 }
+            }
+        }
+    }
+    
+    func updateEffect() {
+        
+        let context = CIContext()
+        
+        DispatchQueue.global(qos: .userInteractive).async {
+            // Loading image into filter...
+            let ciImage = CIImage(data: self.imageData)
+            
+            let filter = self.mainView.filter
+            
+            filter.setValue(ciImage!, forKey: kCIInputImageKey)
+            
+            // Retriving image
+            // Reading input key
+//            print(filter.inputKeys)
+            
+            // Radius up to 100(using 10)
+            if filter.inputKeys.contains("inputRadius") {
+                filter.setValue(self.value * 10, forKey: kCIInputRadiusKey)
+            }
+            
+            if filter.inputKeys.contains("inputIntensity") {
+                filter.setValue(self.value, forKey: kCIInputIntensityKey)
+            }
+            
+            guard let newImage = filter.outputImage else { return }
+            
+            // Creating UIImage...
+            let cgImage = context.createCGImage(newImage, from: newImage.extent)
+            
+            DispatchQueue.main.async {
+                // Updating view
+                self.mainView.image = UIImage(cgImage: cgImage!)
             }
         }
     }

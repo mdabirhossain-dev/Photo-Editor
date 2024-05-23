@@ -19,6 +19,11 @@ struct HomeView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: UIScreen.main.bounds.width)
                 
+                Slider(value: $filterData.value)
+                    .padding(.horizontal, 20)
+                    .opacity(filterData.mainView.isEditable ? 1 : 0)
+                    .disabled(filterData.mainView.isEditable ? false : true)
+                
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 20) {
                         ForEach(filterData.allImages) { filtered in
@@ -44,6 +49,9 @@ struct HomeView: View {
                 ProgressView()
             }
         }
+        .onChange(of: filterData.value, perform: { (_) in
+            filterData.updateEffect()
+        })
         .onChange(of: filterData.imageData, perform: { (_) in
             // Calling ReloadImage if image is changed
             // Clearing existingData

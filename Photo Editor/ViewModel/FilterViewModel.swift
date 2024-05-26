@@ -23,7 +23,7 @@ class FilterViewModel: ObservableObject {
     
     // Loading filtered image when image is selected
     let filters: [CIFilter] = [
-        CIFilter.gaussianBlur(), CIFilter.sepiaTone(), CIFilter.comicEffect(), CIFilter.bloom(), CIFilter.photoEffectChrome(), CIFilter.photoEffectFade(), CIFilter.colorInvert(), CIFilter.colorMonochrome(), CIFilter.bumpDistortion(), CIFilter.boxBlur(), CIFilter.circularScreen()
+        CIFilter.sepiaTone(), CIFilter.photoEffectChrome(), CIFilter.comicEffect(), CIFilter.bloom(), CIFilter.photoEffectFade(), CIFilter.colorInvert(), CIFilter.gaussianBlur(), CIFilter.colorMonochrome(), CIFilter.bumpDistortion(), CIFilter.boxBlur(), CIFilter.circularScreen()
     ]
     
     func loadFilter() {

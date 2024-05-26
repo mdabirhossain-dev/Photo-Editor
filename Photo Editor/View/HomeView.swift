@@ -24,6 +24,13 @@ struct HomeView: View {
                     .opacity(filterData.mainView.isEditable ? 1 : 0)
                     .disabled(filterData.mainView.isEditable ? false : true)
                 
+                Button("Save Image") {
+                    UIImageWriteToSavedPhotosAlbum(filterData.mainView.image, nil, nil, nil)
+                }
+                .buttonStyle(BorderedProminentButtonStyle())
+                .padding(.vertical)
+                .disabled(filterData.mainView == nil ? true : false)
+                
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 20) {
                         ForEach(filterData.allImages) { filtered in
@@ -33,13 +40,14 @@ struct HomeView: View {
                                 .frame(width: 150, height: 150)
                                 .onTapGesture {
                                     // Updating Selected Image(mainView) onTap
+                                    filterData.value = 1.0
                                     filterData.mainView = filtered
                                 }
                         }
                     }
                     .padding()
                 }
-                .padding(.top, 60)
+                .padding(.top, 10)
             } else if filterData.imageData.count == 0 {
                 Button("Select an image") {
                     filterData.imagePicker.toggle()

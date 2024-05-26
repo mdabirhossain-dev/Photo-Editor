@@ -45,7 +45,9 @@ class FilterViewModel: ObservableObject {
                 let cgImage = context.createCGImage(newImage, from: newImage.extent)
                 let isEditable = filter.inputKeys.count > 1
                 
-                let filteredData = FilteredImageModel(image: UIImage(cgImage: cgImage!), filter: filter, isEditable: isEditable)
+                let filteredData = FilteredImageModel(image: UIImage(cgImage: cgImage!),
+                                                      filter: filter,
+                                                      isEditable: isEditable)
                 
                 DispatchQueue.main.async {
                     self.allImages.append(filteredData)

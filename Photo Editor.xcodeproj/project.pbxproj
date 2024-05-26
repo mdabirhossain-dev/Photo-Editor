@@ -27,6 +27,7 @@
 		10D042D92BFA0519004C3772 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		10D042DB2BFA051C004C3772 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		10D042DE2BFA051C004C3772 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		10FD22442C030A1A00052D5D /* Photo-Editor-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Photo-Editor-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +85,7 @@
 		10D042D62BFA0519004C3772 /* Photo Editor */ = {
 			isa = PBXGroup;
 			children = (
+				10FD22442C030A1A00052D5D /* Photo-Editor-Info.plist */,
 				1014D36D2BFA076A001E670E /* Model */,
 				1014D36C2BFA0761001E670E /* View */,
 				1014D36E2BFA0775001E670E /* ViewModel */,
@@ -315,6 +317,8 @@
 				DEVELOPMENT_TEAM = 767JC457LD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Photo-Editor-Info.plist";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Need permission to save photo.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -348,6 +352,8 @@
 				DEVELOPMENT_TEAM = 767JC457LD;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Photo-Editor-Info.plist";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Need permission to save photo.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

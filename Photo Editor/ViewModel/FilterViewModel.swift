@@ -43,9 +43,11 @@ class FilterViewModel: ObservableObject {
                 
                 // Creating UIImage...
                 let cgImage = context.createCGImage(newImage, from: newImage.extent)
+                guard let image = cgImage else { return }
+                
                 let isEditable = filter.inputKeys.count > 1
                 
-                let filteredData = FilteredImageModel(image: UIImage(cgImage: cgImage!),
+                let filteredData = FilteredImageModel(image: UIImage(cgImage: image),
                                                       filter: filter,
                                                       isEditable: isEditable)
                 
@@ -68,10 +70,11 @@ class FilterViewModel: ObservableObject {
         DispatchQueue.global(qos: .userInteractive).async {
             // Loading image into filter...
             let ciImage = CIImage(data: self.imageData)
+            guard let image = ciImage else { return }
             
             let filter = self.mainView.filter
             
-            filter.setValue(ciImage!, forKey: kCIInputImageKey)
+            filter.setValue(image, forKey: kCIInputImageKey)
             
             // Retriving image
             // Reading input key
@@ -90,10 +93,11 @@ class FilterViewModel: ObservableObject {
             
             // Creating UIImage...
             let cgImage = context.createCGImage(newImage, from: newImage.extent)
+            guard let image = cgImage else { return }
             
             DispatchQueue.main.async {
                 // Updating view
-                self.mainView.image = UIImage(cgImage: cgImage!)
+                self.mainView.image = UIImage(cgImage: image)
             }
         }
     }

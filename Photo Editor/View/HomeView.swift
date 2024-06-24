@@ -57,6 +57,7 @@ struct HomeView: View {
                 ProgressView()
             }
         }
+        .navigationTitle("Photo Editor")
         .onChange(of: filterData.value, perform: { (_) in
             filterData.updateEffect()
         })

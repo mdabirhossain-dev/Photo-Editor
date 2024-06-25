@@ -19,10 +19,12 @@ struct HomeView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: UIScreen.main.bounds.width)
                 
-                Slider(value: $filterData.value)
-                    .padding(.horizontal, 20)
-                    .opacity(filterData.mainView.isEditable ? 1 : 0)
-                    .disabled(filterData.mainView.isEditable ? false : true)
+                Slider(value: $filterData.value) { editing in
+                    filterData.updateEffect()
+                }
+                .padding(.horizontal, 20)
+                .opacity(filterData.mainView.isEditable ? 1 : 0)
+                .disabled(filterData.mainView.isEditable ? false : true)
                 
                 Button("Save Image") {
                     UIImageWriteToSavedPhotosAlbum(filterData.mainView.image, nil, nil, nil)
@@ -58,9 +60,9 @@ struct HomeView: View {
             }
         }
         .navigationTitle("Photo Editor")
-        .onChange(of: filterData.value, perform: { (_) in
-            filterData.updateEffect()
-        })
+//        .onChange(of: filterData.value, perform: { (_) in
+//            filterData.updateEffect()
+//        })
         .onChange(of: filterData.imageData, perform: { (_) in
             // Calling ReloadImage if image is changed
             // Clearing existingData
